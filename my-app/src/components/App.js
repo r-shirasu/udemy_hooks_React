@@ -9,16 +9,17 @@ const [state, dispatch] = useReducer(reducer, []);
 const [title, setTitle] = useState('')
 const [body, setBody] = useState('')
 
-const addEvent = (e) => {
-  e.preventDefault();
+const addEvent = e => {
+  e.preventDefault()
 
   dispatch({
-       type: 'CREATE_EVENT',
-       title,
-       body
-    })
-    setTitle('')
-    setBody('')
+   type: 'CREATE_EVENT',
+   title,
+   body
+  })
+
+  setTitle('')
+  setBody('')
 }
 
 
@@ -37,7 +38,7 @@ const addEvent = (e) => {
           <textarea className="form-control" id="formEventBody" value={body} onChange={e =>setBody(e.target.value)}></textarea>
         </div>
 
-        <button className='btn  btn-primary' onClick={addEvent}>イベントを作成する</button>
+        <button className="btn btn-primary" onClick={addEvent}>イベントを作成する</button>
         <button className='btn  btn-danger'>全てのイベントを削除する</button>
       </form>
 
@@ -64,7 +65,7 @@ const addEvent = (e) => {
             <td>{id}</td>
             <td>{event.title}</td>
             <td>{event.body}</td>
-            <td><button type="button" className="btn btn-danger"on Click={handleClickDeleteButton}>削除</button></td>
+            <td><button type="button" className="btn btn-danger"onClick={handleClickDeleteButton}>削除</button></td>
           </tr>
         )
           })
