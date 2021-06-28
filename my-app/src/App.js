@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
 
-function App() {
+export const  App = (props) => {
+const [state, setState] = useState(props)
+const {name, price} = state
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<p>現在の{name}は、{price}円です。</p>
+<button onClick={() => setState({...state, price: price + 1})}>+1</button>
+<button onClick={() => setState({...state, price: price - 1})}>-1</button>
+<button onClick={() => setState(props)}>Reset</button>
+<input value={name} onChange={e => setState({...state, name: e.target.value})}></input>
     </div>
   );
 }
 
-export default App;
+App.defaultProps = {
+  name: '',
+  price: 1000
+}
