@@ -52,7 +52,23 @@ const addEvent = (e) => {
       </tr>
     </thead>
     <tbody>
+      {
+        state.map((event, index) => {
+          const id = event.id
+          const handleClickDeleteButton = () => {
+            dispatch({type: 'DELETE_EVENT', id})
+          }
 
+          return (
+          <tr key={index}>
+            <td>{id}</td>
+            <td>{event.title}</td>
+            <td>{event.body}</td>
+            <td><button type="button" className="btn btn-danger"on Click={handleClickDeleteButton}>削除</button></td>
+          </tr>
+        )
+          })
+      }
     </tbody>
       </table>
     </div>
