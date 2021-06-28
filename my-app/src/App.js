@@ -9,6 +9,10 @@ useEffect(() => {
   console.log('This is like componentDidMount or componentDidupdate')
 })
 
+useEffect(() => {
+  console.log('This is like componentDidMount')
+}, [])
+
   return (
     <div className="App">
 <p>現在の{name}は、{price}円です。</p>
