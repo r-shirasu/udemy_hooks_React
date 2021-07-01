@@ -28,6 +28,8 @@ function App() {
     dispatch({ type: "DELETE_ALLEVENTS" });
   };
 
+  const unCreatable = title === "" || body === "";
+
   return (
     <div className="container-fluid">
       <h4>イベント作成ホーム</h4>
@@ -52,7 +54,11 @@ function App() {
           ></textarea>
         </div>
 
-        <button className="btn btn-primary" onClick={addEvent}>
+        <button
+          className="btn btn-primary"
+          onClick={addEvent}
+          disabled={unCreatable}
+        >
           イベントを作成する
         </button>
         <button className="btn  btn-danger" onClick={deleteAllEvents}>
