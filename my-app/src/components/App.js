@@ -25,7 +25,10 @@ function App() {
 
   const deleteAllEvents = (e) => {
     e.preventDefault();
-    dispatch({ type: "DELETE_ALLEVENTS" });
+    const result = window.confirm(
+      "全てのイベントを本当に削除しても良いですか？"
+    );
+    if (result) dispatch({ type: "DELETE_ALLEVENTS" });
   };
 
   const unCreatable = title === "" || body === "";
